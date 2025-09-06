@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Compteur Intime</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #2a2a3d);
+      color: #fff;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #ff7eb3;
+      text-shadow: 0 0 12px rgba(255, 126, 179, 0.6);
+    }
+
+    #count {
+      font-size: 5rem;
+      font-weight: 800;
+      margin: 20px 0;
+      color: #6ee7b7;
+      text-shadow: 0 0 20px rgba(110, 231, 183, 0.7);
+    }
+
+    button {
+      font-size: 1.5rem;
+      padding: 18px 40px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(45deg, #ff7eb3, #ff758c);
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(255, 118, 155, 0.4);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 118, 155, 0.6);
+    }
+
+    button:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 10px rgba(255, 118, 155, 0.4);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 15px;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔥 Mon Compteur Intime 🔥</h1>
+  <div id="count">0</div>
+  <button id="btn">+1</button>
+
+  <footer>Données sauvegardées sur ton navigateur</footer>
+
+  <script>
+    const el = document.getElementById('count');
+    const btn = document.getElementById('btn');
+    let n = Number(localStorage.getItem('c') || 0);
+    el.textContent = n;
+    btn.onclick = () => {
+      n++;
+      el.textContent = n;
+      localStorage.setItem('c', n);
+    };
+  </script>
+</body>
+</html>
